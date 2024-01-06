@@ -36,4 +36,15 @@ public class AlbumService implements IAlbum {
     public void update(Album album) {
         albumRepo.save(album);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        albumRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Album> searchAlbum(String palabra) {
+        return albumRepo.searchAlbum(palabra);
+    }
+
 }

@@ -11,6 +11,6 @@ public interface IAlbum {
     List<Album> getAll();
     Optional<Album> getById(Long id);
     void update(Album album);
-
-
+    void deleteById(Long id);
+    List<Album>searchAlbum(String palabra);
 }

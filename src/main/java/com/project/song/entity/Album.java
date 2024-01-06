@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,8 @@ public class Album {
     private Long IdAlbum;
     private String nombre;
     private LocalDate fechaCreacion;
-    private String duracion_total;
+    private LocalTime duracionTotal;
+    private int cantidadCanciones;
 
     @OneToMany(
             targetEntity = Cancion.class,
