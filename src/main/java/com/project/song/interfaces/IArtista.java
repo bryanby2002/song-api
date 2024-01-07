@@ -11,4 +11,6 @@ public interface IArtista {
     List<Artista> getAll();
     Optional<Artista> getById(Long id);
     void update(Artista artista);
+    void deleteById(Long id);
+    List<Artista> searchArtista(String palabra);
 }

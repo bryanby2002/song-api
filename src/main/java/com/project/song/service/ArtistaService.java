@@ -36,4 +36,14 @@ public class ArtistaService  implements IArtista {
     public void update(Artista artista) {
         artistaRepo.save(artista);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        artistaRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Artista> searchArtista(String palabra) {
+        return artistaRepo.searchByNombre(palabra);
+    }
 }

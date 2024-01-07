@@ -3,7 +3,6 @@ package com.project.song.controller;
 import com.project.song.entity.Album;
 import com.project.song.service.AlbumService;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +12,6 @@ import java.util.*;
 @RestController
 @RequestMapping("/album")
 @AllArgsConstructor
-@Slf4j
 public class AlbumController {
 
     private final AlbumService albumService;
