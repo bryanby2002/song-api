@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,11 +18,9 @@ public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long IdAlbum;
+    private Long idAlbum;
     private String nombre;
     private LocalDate fechaCreacion;
-    private LocalTime duracionTotal;
-    private int cantidadCanciones;
 
     @OneToMany(
             targetEntity = Cancion.class,
@@ -32,7 +29,7 @@ public class Album {
             mappedBy = "album"
     )
     @JsonManagedReference("cancion-album")
-    private List<Cancion> canciones = new ArrayList<>();
+    private List<Cancion> cancionList = new ArrayList<>();
 
 
 }

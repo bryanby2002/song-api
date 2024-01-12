@@ -1,5 +1,6 @@
 package com.project.song.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,11 +19,16 @@ public class Artista {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idArtista;
-    private String nombre;
+    private String nombreArtistico;
     private String apellido;
-    private String edad;
+    private Integer edad;
     private String sexo;
     private String nacionalidad;
+
+    @ManyToOne(targetEntity = Banda.class)
+    @JsonBackReference("artista-banda")
+    @JoinColumn(name = "id_banda")
+    private Banda banda;
 
     @OneToMany(
             targetEntity = Cancion.class,
@@ -31,6 +37,6 @@ public class Artista {
             mappedBy = "artista"
     )
     @JsonManagedReference("cancion-artista")
-    private List<Cancion> canciones = new ArrayList<>();
+    private List<Cancion> cancionList = new ArrayList<>();
 
 }

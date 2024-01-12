@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public interface ArtistaRepo extends JpaRepository<Artista, Long> {
 
-    @Query("select a from Artista a where a.nombre like %:palabra%")
+    @Query("select a from Artista a where a.nombreArtistico like %:palabra% " +
+            "or a.apellido like %:palabra% ")
     List<Artista> searchByNombre(@Param(value = "palabra") String palabra);
 }

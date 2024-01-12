@@ -36,4 +36,14 @@ public class GeneroService implements IGenero {
     public void update(Genero genero) {
         generoRepo.save(genero);
     }
+
+    @Override
+    public void deleteById(long id) {
+        generoRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Genero> search(String palabra) {
+        return generoRepo.search(palabra);
+    }
 }

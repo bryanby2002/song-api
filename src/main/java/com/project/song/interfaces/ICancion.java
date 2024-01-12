@@ -11,5 +11,7 @@ public interface ICancion {
     List<Cancion> getAll();
     Optional<Cancion> getById(Long id);
     void update(Cancion cancion);
+    void deleteById(Long id);
+    List<Cancion> search(String palabra);
 
 }

@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalTime;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,25 +18,25 @@ public class Cancion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCancion;
     private String titulo;
-    private String duracion;
+    private LocalTime duracion;
     @Column(length = 2000)
     private String source;
-    @Column(length = 1000000)
+    @Column(length = 2000)
     private String letra;
 
     @ManyToOne(targetEntity = Album.class)
-    @JoinColumn(name = "id_album")
     @JsonBackReference("cancion-album")
+    @JoinColumn(name = "id_album")
     private Album album;
 
     @ManyToOne(targetEntity = Genero.class)
-    @JoinColumn(name = "id_genero")
     @JsonBackReference("cancion-genero")
+    @JoinColumn(name = "id_genero")
     private Genero genero;
 
     @ManyToOne(targetEntity = Artista.class)
-    @JoinColumn(name = "id_artista")
     @JsonBackReference("cancion-artista")
+    @JoinColumn(name = "id_artista")
     private Artista artista;
 
 }

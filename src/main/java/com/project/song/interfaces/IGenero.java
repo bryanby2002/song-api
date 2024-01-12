@@ -11,5 +11,7 @@ public interface IGenero {
     List<Genero> getAll();
     Optional<Genero> getById(Long id);
     void update(Genero genero);
+    void deleteById(long id);
+    List<Genero> search(String palabra);
 
 }

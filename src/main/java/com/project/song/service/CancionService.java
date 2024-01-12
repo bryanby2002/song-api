@@ -19,21 +19,31 @@ public class CancionService implements ICancion {
     // methods for crud cancion
     @Override
     public Cancion save(Cancion cancion) {
-        return null;
+        return cancionRepo.save(cancion);
     }
 
     @Override
     public List<Cancion> getAll() {
-        return null;
+        return cancionRepo.findAll();
     }
 
     @Override
     public Optional<Cancion> getById(Long id) {
-        return Optional.empty();
+        return cancionRepo.findById(id);
     }
 
     @Override
     public void update(Cancion cancion) {
+        cancionRepo.save(cancion);
+    }
 
+    @Override
+    public void deleteById(Long id) {
+        cancionRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Cancion> search(String palabra) {
+        return cancionRepo.search(palabra);
     }
 }

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,20 +14,23 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Genero {
+public class Banda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idGenero;
+    private Long idBanda;
     private String nombre;
-
+    @Column(length = 500)
+    private String descripcion;
+    private String origen;
+    private LocalDate fechaCreacion;
     @OneToMany(
-            targetEntity = Cancion.class,
+            targetEntity = Artista.class,
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
-            mappedBy = "genero"
+            mappedBy = "banda"
     )
-    @JsonManagedReference("cancion-genero")
-    private List<Cancion> cancionList = new ArrayList<>();
+    @JsonManagedReference("artista-banda")
+    private List<Artista> artistaList = new ArrayList<>();
 
 }
